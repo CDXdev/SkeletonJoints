@@ -28,6 +28,7 @@ namespace SkeletonJoints {
             _sensor = KinectSensor.KinectSensors.FirstOrDefault();
             //KinectSensor.KinectSensors.Where(x => x.Status == KinectStatus.Connected).FirstOrDefault(); 
             if (_sensor != null) {
+                _sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
                 _sensor.SkeletonFrameReady += KinectSkeletonFrameReady;
                 _sensor.SkeletonStream.Enable();
                 _sensor.Start();
